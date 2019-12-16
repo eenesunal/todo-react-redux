@@ -1,0 +1,9 @@
+{
+  "todos": [
+    {
+      "id": 4,
+      "text": "book hotel&airplane for summer trip",
+      "completed": true
+    }
+  ]
+}
