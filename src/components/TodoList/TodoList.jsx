@@ -13,6 +13,8 @@ class TodoList extends Component {
 
     render() {
         const { deleteTodo, todos, toggleTodo } = this.props
+        // const shownTodos = filter.todos
+
         return (
             <Container>
                 <List>
