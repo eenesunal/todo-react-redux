@@ -9,7 +9,6 @@ export const GET = (request) => {
     return new Promise((resolve, reject) => {
         request.method = "GET"
         doRequest(request).then((response) => {
-            console.log('----------------response:', response, '-------------')
             response.json().then(resolve).catch(reject)
         }).catch(reject)
     })
@@ -66,7 +65,6 @@ export const doRequest = (request) => {
             fetch(new Request(url, request)).then((response) => {
                 response.traceId = response.headers.get("x-trace-id")
                 if (response.status < 400) {
-                    console.log('-----', response)
                     return resolve(response)
                 }
                 return reject(response)

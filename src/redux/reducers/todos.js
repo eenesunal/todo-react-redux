@@ -13,17 +13,27 @@ const todoReducer = (state = initialState, action) => {
             }
         case types.ADD_TODO:
             return {
+                ...state
+            }
+        case types.ADD_TODO_SUCCESS:
+            return {
                 ...state,
-                todos: [...state.todos, action.newTodo]
+                todos: [...state.todos, action.todo]
             }
         case types.DELETE_TODO:
             return {
                 ...state,
-                todos: state.todos.filter(todo => todo.id !== action.id)
+            }
+        case types.DELETE_TODO_SUCCESS:
+            debugger
+            return {
+                ...state,
+                todos: state.todos.filter(todo => todo.id !== action.deletedTodoId)
             }
         case types.TOGGLE_TODO:
+            console.log(action)
             return state.todos.map(todo =>
-                todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
+                todo.id === action.todo.id ? { ...todo, completed: !todo.completed } : todo
             )
         default:
             return state

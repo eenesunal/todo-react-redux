@@ -1,26 +1,22 @@
 import types from '../action-types'
 
-let nextTodoId = 0
 export const getTodos = () => ({
     type: types.GET_TODOS,
 })
 
-export const setTodos = (todos) => ({
+export const setTodos = todos => ({
     type: types.SET_TODOS,
     todos
 })
 
 export const addTodo = text => ({
     type: types.ADD_TODO,
-    newTodo: {
-        id: nextTodoId++,
-        text
-    }
+    text
 })
 
-export const toggleTodo = id => ({
-    type: types.TOGGLE_TODO,
-    id
+export const addTodoSuccess = todo => ({
+    type: types.ADD_TODO_SUCCESS,
+    todo
 })
 
 export const deleteTodo = (id) => ({
@@ -28,14 +24,17 @@ export const deleteTodo = (id) => ({
     id
 })
 
-// export const VisibilityFilters = {
-//     SHOW_ALL: 'SHOW_ALL',
-//     SHOW_COMPLETED: 'SHOW_COMPLETED',
-//     SHOW_ACTIVE: 'SHOW_ACTIVE'
-// }
+export const deleteTodoSuccess = deletedTodoId => ({
+    type: types.DELETE_TODO_SUCCESS,
+    deletedTodoId
+})
 
+export const toggleTodo = todo => ({
+    type: types.TOGGLE_TODO,
+    todo
+})
 
-// export const setVisibilityFilter = filter => ({
-//     type: 'SET_VISIBILITY_FILTER',
-//     filter
-// })
+export const toggleTodoSuccess = todos => ({
+    type: types.TOGGLE_TODO_SUCCESS,
+    todos
+})

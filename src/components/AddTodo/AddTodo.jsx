@@ -2,8 +2,11 @@ import React, { Component } from "react"
 import PropTypes from "prop-types"
 
 import { AddButton as Button, AddTodo as Content, TodoInput as Input } from "./AddTodo.styled"
+import { connect } from "react-redux"
 
-export default class AddTodo extends Component {
+import { addTodo } from '../../redux/actions'
+
+class AddTodo extends Component {
     constructor(props) {
         super(props)
 
@@ -14,7 +17,6 @@ export default class AddTodo extends Component {
 
     render() {
         const { todo } = this.state
-        const { addTodo } = this.props
 
         return (
             <Content>
@@ -25,7 +27,7 @@ export default class AddTodo extends Component {
                     value={todo || ""}
                 />
                 <Button
-                    onClick={() => addTodo(todo, () => { this.setState({ todo: null }) })}
+                    onClick={this.addNewTodo}
                 >
                     +
                 </Button>
@@ -39,15 +41,30 @@ export default class AddTodo extends Component {
 
     onSubmit = (e) => {
         if (e.keyCode === 13) {
-            this.props.addTodo(this.state.todo, () => {
-                this.setState({
-                    todo: null
-                })
-            })
+            this.addNewTodo()
         }
+    }
+
+    addNewTodo = () => {
+        this.props.addTodo(this.state.todo)
+
+        this.setState({
+            todo: null
+        })
     }
 }
 
 AddTodo.propTypes = {
     addTodo: PropTypes.func.isRequired
 }
+
+
+const mapStateToProps = (state) => ({
+    todos: state.todoReducer.todos
+})
+
+const mapDispatchToProps = {
+    addTodo
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddTodo)

@@ -12,8 +12,7 @@ class TodoList extends Component {
     }
 
     render() {
-        const { deleteTodo, todos, toggleTodo } = this.props
-        // const shownTodos = filter.todos
+        const { todos } = this.props
 
         return (
             <Container>
@@ -23,12 +22,8 @@ class TodoList extends Component {
                             todos.map(todo => {
                                 return (
                                     <TodoItem
-                                        completed={todo.completed}
-                                        deleteTodo={deleteTodo}
-                                        key={todo.id}
-                                        onClick={() => toggleTodo(todo.id, todo.completed)}
-                                        text={todo.text}
-                                        todoId={todo.id}
+                                        key={todo.id || 0}
+                                        todo={todo}
                                     />
                                 )
                             }) :
@@ -48,8 +43,6 @@ TodoList.propTypes = {
             text: PropTypes.string.isRequired
         }).isRequired
     ).isRequired,
-    toggleTodo: PropTypes.func.isRequired,
-    deleteTodo: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state) => ({
