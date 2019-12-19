@@ -2,7 +2,7 @@ import { call, put, takeLatest } from 'redux-saga/effects'
 import types from '../action-types'
 import { DELETE, GET, PATCH, POST } from '../../request'
 
-import { addTodoSuccess, setTodos, deleteTodoSuccess } from '../actions'
+import { addTodoSuccess, setTodos, deleteTodoSuccess, toggleTodoSuccess } from '../actions'
 
 function* getTodos() {
     const todos = yield call(() => GET({ path: 'todos' }))
@@ -28,14 +28,12 @@ function* deleteTodo(deleteAction) {
 }
 
 function* toggleTodo(toggleAction) {
-    const toggle = yield call(() => PATCH({
+    const toggledTodo = yield call(() => PATCH({
         path: `todos/${toggleAction.todo.id}`,
         body: JSON.stringify({ "completed": !toggleAction.todo.completed })
     }))
 
-    console.log(toggle)
-
-    // yield put(toggleTodoSuccess(deleteAction.id))
+    yield put(toggleTodoSuccess(toggledTodo))
 }
 
 export default function* rootSaga() {

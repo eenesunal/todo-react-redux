@@ -31,10 +31,20 @@ const todoReducer = (state = initialState, action) => {
                 todos: state.todos.filter(todo => todo.id !== action.deletedTodoId)
             }
         case types.TOGGLE_TODO:
-            console.log(action)
-            return state.todos.map(todo =>
-                todo.id === action.todo.id ? { ...todo, completed: !todo.completed } : todo
-            )
+            return {
+                ...state
+            }
+        case types.TOGGLE_TODO_SUCCESS:
+            return {
+                ...state,
+                todos: state.todos.map(todo => {
+                    return (
+                        (action.toggledTodo.id === todo.id) ?
+                            action.toggledTodo :
+                            todo
+                    )
+                })
+            }
         default:
             return state
     }

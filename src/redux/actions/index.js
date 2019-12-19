@@ -34,7 +34,7 @@ export const toggleTodo = todo => ({
     todo
 })
 
-export const toggleTodoSuccess = todos => ({
+export const toggleTodoSuccess = toggledTodo => ({
     type: types.TOGGLE_TODO_SUCCESS,
-    todos
+    toggledTodo
 })
