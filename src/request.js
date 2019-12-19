@@ -1,10 +1,5 @@
 const API = "http://localhost:3001/"
 
-
-// export const getTodosRequest = () => {
-
-// }
-
 export const GET = (request) => {
     return new Promise((resolve, reject) => {
         request.method = "GET"

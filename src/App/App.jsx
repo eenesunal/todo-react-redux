@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React from "react"
 
 import {
   AddTodo,
@@ -9,26 +9,17 @@ import {
 
 import { Container, Content } from "./App.styled"
 
-
-export default class App extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      todos: null,
-    }
-  }
-
-  render() {
-    return (
-      <Container>
-        <Header />
-        <Content>
-          <AddTodo />
-          <TodoList />
-          <VisibilityFilters />
-        </Content>
-      </Container>
-    )
-  }
+const App = () => {
+  return (
+    <Container>
+      <Header />
+      <Content>
+        <AddTodo />
+        <TodoList />
+        <VisibilityFilters />
+      </Content>
+    </Container>
+  )
 }
+
+export default App

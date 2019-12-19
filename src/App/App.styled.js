@@ -26,5 +26,6 @@ const Content = styled.div`
 `
 
 export {
-    Container, Content
+    Container,
+    Content
 }

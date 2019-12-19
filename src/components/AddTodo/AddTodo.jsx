@@ -1,10 +1,10 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
-
-import { AddButton as Button, AddTodo as Content, TodoInput as Input } from "./AddTodo.styled"
 import { connect } from "react-redux"
 
 import { addTodo } from '../../redux/actions'
+
+import { AddButton as Button, AddTodo as Content, TodoInput as Input } from "./AddTodo.styled"
 
 class AddTodo extends Component {
     constructor(props) {
@@ -26,11 +26,7 @@ class AddTodo extends Component {
                     type="text"
                     value={todo || ""}
                 />
-                <Button
-                    onClick={this.addNewTodo}
-                >
-                    +
-                </Button>
+                <Button onClick={this.addNewTodo}>+</Button>
             </Content>
         )
     }
@@ -58,13 +54,8 @@ AddTodo.propTypes = {
     addTodo: PropTypes.func.isRequired
 }
 
-
-const mapStateToProps = (state) => ({
-    todos: state.todoReducer.todos
-})
-
 const mapDispatchToProps = {
     addTodo
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddTodo)
+export default connect(null, mapDispatchToProps)(AddTodo)

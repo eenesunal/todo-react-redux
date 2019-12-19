@@ -1,10 +1,11 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
+import { connect } from "react-redux"
 
 import { Todo as TodoItem } from "../"
 import { getTodos } from '../../redux/actions'
+
 import { Container, TodoList as List } from "./TodoList.styled"
-import { connect } from "react-redux"
 
 class TodoList extends Component {
     componentDidMount() {
@@ -12,29 +13,30 @@ class TodoList extends Component {
     }
 
     render() {
-        let { todos, visibleTodos } = this.props
+        let { todos, visibility } = this.props
+
+        if (visibility) {
+            todos = todos.filter(todo => {
+                return (
+                    visibility === "ALL" ?
+                        todo :
+                        (visibility === "COMPLETED" ? todo.completed : !todo.completed)
+                )
+            })
+        }
 
         return (
             <Container>
                 <List>
                     {
-                        visibleTodos.length > 0 ?
-                            visibleTodos.map(todo => {
-                                return (
-                                    <TodoItem
-                                        key={todo.id || 0}
-                                        todo={todo}
-                                    />
-                                )
-                            }) :
-                            todos.map(todo => {
-                                return (
-                                    <TodoItem
-                                        key={todo.id || 0}
-                                        todo={todo}
-                                    />
-                                )
-                            })
+                        todos.map(todo => {
+                            return (
+                                <TodoItem
+                                    key={todo.id}
+                                    todo={todo}
+                                />
+                            )
+                        })
                     }
                 </List>
             </Container>
@@ -50,11 +52,13 @@ TodoList.propTypes = {
             text: PropTypes.string.isRequired
         }).isRequired
     ).isRequired,
+    visibility: PropTypes.string,
+    getTodos: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => ({
     todos: state.todoReducer.todos,
-    visibleTodos: state.todoReducer.visibleTodos
+    visibility: state.filterReducer.filter,
 })
 
 const mapDispatchToProps = {

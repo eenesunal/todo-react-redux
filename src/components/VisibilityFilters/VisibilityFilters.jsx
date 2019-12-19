@@ -16,19 +16,13 @@ class VisibilityFilters extends Component {
 
         return (
             <Content>
-                <Completed
-                    onClick={() => setVisibilityFilter("COMPLETED")}
-                >
+                <Completed onClick={() => setVisibilityFilter("COMPLETED")}>
                     Completed
                 </Completed>
-                <Incomplete
-                    onClick={() => setVisibilityFilter("INCOMPLETE")}
-                >
+                <Incomplete onClick={() => setVisibilityFilter("INCOMPLETE")}>
                     Incomplete
                 </Incomplete>
-                <All
-                    onClick={() => setVisibilityFilter("ALL")}
-                >
+                <All onClick={() => setVisibilityFilter("ALL")}>
                     All
                 </All>
             </Content>
@@ -36,13 +30,8 @@ class VisibilityFilters extends Component {
     }
 }
 
-
-const mapStateToProps = (state) => ({
-    todos: state.todoReducer.todos
-})
-
 const mapDispatchToProps = {
     setVisibilityFilter
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(VisibilityFilters)
+export default connect(null, mapDispatchToProps)(VisibilityFilters)

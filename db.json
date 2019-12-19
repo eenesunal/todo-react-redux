@@ -1,19 +1,9 @@
 {
   "todos": [
     {
-      "text": "2;lj123k123",
-      "completed": true,
-      "id": 12
-    },
-    {
       "text": "asdasd",
-      "completed": false,
+      "completed": true,
       "id": 13
-    },
-    {
-      "text": "selam",
-      "completed": false,
-      "id": 14
     },
     {
       "text": "asd",
@@ -22,8 +12,28 @@
     },
     {
       "text": "123",
-      "completed": false,
+      "completed": true,
       "id": 19
+    },
+    {
+      "text": "selam",
+      "completed": false,
+      "id": 20
+    },
+    {
+      "text": ":)",
+      "completed": true,
+      "id": 21
+    },
+    {
+      "text": "as",
+      "completed": false,
+      "id": 22
+    },
+    {
+      "text": "xa",
+      "completed": true,
+      "id": 23
     }
   ]
 }

@@ -3,7 +3,6 @@ import { theme } from "../../theme.styled"
 
 const AddTodo = styled.div`
     display: flex;
-
     align-self: stretch;
     align-items: center;
 
@@ -47,4 +46,8 @@ const AddButton = styled.button`
 
 `;
 
-export { AddButton, AddTodo, TodoInput }
+export {
+    AddButton,
+    AddTodo,
+    TodoInput
+}

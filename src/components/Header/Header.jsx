@@ -1,14 +1,18 @@
-import React, { Component } from "react"
+import React from "react"
 
-import { Header as Container, MainText, SubText } from "./Header.styled"
+import {
+    Header as Container,
+    MainText,
+    SubText
+} from "./Header.styled"
 
-export default class Header extends Component {
-    render() {
-        return (
-            <Container>
-                <MainText>todo app</MainText>
-                <SubText>with using React&Redux</SubText>
-            </Container>
-        )
-    }
+const Header = () => {
+    return (
+        <Container>
+            <MainText>todo app</MainText>
+            <SubText>with using React, Redux&Saga</SubText>
+        </Container>
+    )
 }
+
+export default Header

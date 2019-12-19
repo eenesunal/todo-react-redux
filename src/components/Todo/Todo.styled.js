@@ -1,5 +1,4 @@
 import styled from "styled-components"
-
 import { theme } from "../../theme.styled"
 
 const Todo = styled.li`
@@ -24,8 +23,8 @@ const Todo = styled.li`
 `;
 
 const TodoText = styled.p`
-    font-size: 24px;
     flex: 1;
+    font-size: 24px;
 
     margin: 0 10px 0 0;
     padding: 0;
@@ -36,8 +35,8 @@ const TodoText = styled.p`
 const Remove = styled.span`
     font-size: 24px;
     color: ${theme.colors.error};
-    margin-left: auto;
-    margin-right: 5px;
+
+    margin-left: 0 5px 0 auto;
 
     &:hover {
         opacity: .8;
@@ -45,5 +44,7 @@ const Remove = styled.span`
 `;
 
 export {
-    Remove, Todo, TodoText
+    Remove,
+    Todo,
+    TodoText
 }

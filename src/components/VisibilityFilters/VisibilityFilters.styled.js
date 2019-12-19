@@ -1,5 +1,4 @@
 import styled from "styled-components"
-
 import { theme } from "../../theme.styled"
 
 const VisibilityFilters = styled.div`
@@ -9,7 +8,6 @@ const VisibilityFilters = styled.div`
 
     margin: 0;
     padding: 0;
-
     height: 100px;
 `
 
@@ -23,7 +21,7 @@ const Button = styled.button`
     margin: 0 10px;
     border: 0;
     
-    outline: 0;
+    outline: none;
     cursor: pointer;
 `
 
@@ -42,4 +40,9 @@ const AllButton = styled(Button)`
     color: #fff;
 `;
 
-export { AllButton, CompletedButton, IncompleteButton, VisibilityFilters }
+export {
+    AllButton,
+    CompletedButton,
+    IncompleteButton,
+    VisibilityFilters
+}

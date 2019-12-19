@@ -2,9 +2,13 @@ import React, { Component } from "react"
 import PropTypes from "prop-types"
 import { connect } from "react-redux"
 
-import { Remove, Todo as Item, TodoText as Text } from "./Todo.styled"
-
 import { deleteTodo, toggleTodo } from '../../redux/actions'
+
+import {
+    Remove,
+    Todo as Item,
+    TodoText as Text
+} from "./Todo.styled"
 
 class Todo extends Component {
     render() {
@@ -16,7 +20,9 @@ class Todo extends Component {
                 <Text
                     completed={completed}
                     onClick={() => toggleTodo(todo)}
-                >{text}</Text>
+                >
+                    {text}
+                </Text>
                 <Remove onClick={() => deleteTodo(id)}>x</Remove>
             </Item >
         )
@@ -28,10 +34,14 @@ const mapDispatchToProps = {
     toggleTodo
 }
 
-export default connect(null, mapDispatchToProps)(Todo)
-
 Todo.propTypes = {
-    todo: PropTypes.object.isRequired,
+    todo: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        completed: PropTypes.bool.isRequired,
+        text: PropTypes.string.isRequired
+    }).isRequired,
     deleteTodo: PropTypes.func.isRequired,
     toggleTodo: PropTypes.func.isRequired
 }
+
+export default connect(null, mapDispatchToProps)(Todo)
