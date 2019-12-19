@@ -1,6 +1,7 @@
 {
   "name": "todo-with-reduz",
   "version": "0.1.0",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "json-server": "^0.15.1",

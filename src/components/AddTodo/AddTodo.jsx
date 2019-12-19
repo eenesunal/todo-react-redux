@@ -42,6 +42,10 @@ class AddTodo extends Component {
     }
 
     addNewTodo = () => {
+        const { todo } = this.state
+
+        if (todo.length === 0) return
+
         this.props.addTodo(this.state.todo)
 
         this.setState({

@@ -9,6 +9,8 @@ const Container = styled.div`
 
     margin: 0;
     padding: 0;
+
+    overflow: hidden;
 `;
 
 const TodoList = styled.ul`
@@ -18,7 +20,7 @@ const TodoList = styled.ul`
     align-self: stretch;
 
     margin: 0;
-    padding: 0;
+    padding: 0 10px 0 0;
     overflow-y: auto;
 `;
 

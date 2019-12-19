@@ -33,10 +33,11 @@ const TodoText = styled.p`
 `;
 
 const Remove = styled.span`
-    font-size: 24px;
+    font-size: 24px !important;
     color: ${theme.colors.error};
+    cursor: pointer;
 
-    margin-left: 0 5px 0 auto;
+    margin: 0 5px 0 auto !important;
 
     &:hover {
         opacity: .8;

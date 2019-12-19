@@ -1,39 +1,14 @@
 {
   "todos": [
     {
-      "text": "asdasd",
-      "completed": true,
-      "id": 13
+      "text": "sadf",
+      "completed": false,
+      "id": 51
     },
     {
       "text": "asd",
       "completed": false,
-      "id": 15
-    },
-    {
-      "text": "123",
-      "completed": true,
-      "id": 19
-    },
-    {
-      "text": "selam",
-      "completed": false,
-      "id": 20
-    },
-    {
-      "text": ":)",
-      "completed": true,
-      "id": 21
-    },
-    {
-      "text": "as",
-      "completed": false,
-      "id": 22
-    },
-    {
-      "text": "xa",
-      "completed": true,
-      "id": 23
+      "id": 52
     }
   ]
 }

@@ -20,6 +20,8 @@ const Content = styled.div`
     margin: 0;
     padding: 10px 25px;
 
+    overflow: hidden;
+
     * {
         font-size: 22px;
     }
