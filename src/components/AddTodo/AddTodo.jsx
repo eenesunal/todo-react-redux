@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import PropTypes from "prop-types"
 import { connect } from "react-redux"
 
-import { addTodo } from '../../redux/actions'
+import { addTodo } from "../../redux/actions"
 
 import { AddButton as Button, AddTodo as Content, TodoInput as Input } from "./AddTodo.styled"
 

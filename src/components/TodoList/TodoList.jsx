@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { connect } from "react-redux"
 
 import { Todo as TodoItem } from "../"
-import { getTodos } from '../../redux/actions'
+import { getTodos } from "../../redux/actions"
 
 import { Container, TodoList as List } from "./TodoList.styled"
 

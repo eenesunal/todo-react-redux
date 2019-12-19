@@ -26,11 +26,10 @@ function* addTodo(newTodo) {
         localStorage.setItem("nextTodoId", currentId)
         todos.push(newItem)
 
-        localStorage.setItem("todos", JSON.stringify(todos));
+        localStorage.setItem("todos", JSON.stringify(todos))
 
         return newItem
     })
-    debugger
     yield put(addTodoSuccess(addedTodo))
 }
 
@@ -73,8 +72,8 @@ function* toggleTodo(toggleAction) {
 }
 
 export default function* rootSaga() {
-    yield takeLatest(types.GET_TODOS, getTodos);
-    yield takeLatest(types.ADD_TODO, addTodo);
-    yield takeLatest(types.DELETE_TODO, deleteTodo);
-    yield takeLatest(types.TOGGLE_TODO, toggleTodo);
+    yield takeLatest(types.GET_TODOS, getTodos)
+    yield takeLatest(types.ADD_TODO, addTodo)
+    yield takeLatest(types.DELETE_TODO, deleteTodo)
+    yield takeLatest(types.TOGGLE_TODO, toggleTodo)
 }

@@ -1,4 +1,4 @@
-import types from '../action-types'
+import types from "../action-types"
 
 export const getTodos = () => ({
     type: types.GET_TODOS,
