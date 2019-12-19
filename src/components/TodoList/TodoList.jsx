@@ -15,7 +15,7 @@ class TodoList extends Component {
     render() {
         let { todos, visibility } = this.props
 
-        if (visibility) {
+        if (visibility && todos) {
             todos = todos.filter(todo => {
                 return (
                     visibility === "ALL" ?
@@ -29,14 +29,16 @@ class TodoList extends Component {
             <Container>
                 <List>
                     {
-                        todos.map(todo => {
-                            return (
-                                <TodoItem
-                                    key={todo.id}
-                                    todo={todo}
-                                />
-                            )
-                        })
+                        todos ?
+                            todos.map(todo => {
+                                return (
+                                    <TodoItem
+                                        key={todo.id}
+                                        todo={todo}
+                                    />
+                                )
+                            }) :
+                            <React.Fragment />
                     }
                 </List>
             </Container>
@@ -51,7 +53,7 @@ TodoList.propTypes = {
             completed: PropTypes.bool.isRequired,
             text: PropTypes.string.isRequired
         }).isRequired
-    ).isRequired,
+    ),
     visibility: PropTypes.string,
     getTodos: PropTypes.func.isRequired
 }
