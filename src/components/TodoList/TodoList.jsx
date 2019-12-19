@@ -12,14 +12,14 @@ class TodoList extends Component {
     }
 
     render() {
-        const { todos } = this.props
+        let { todos, visibleTodos } = this.props
 
         return (
             <Container>
                 <List>
                     {
-                        todos.length ?
-                            todos.map(todo => {
+                        visibleTodos.length > 0 ?
+                            visibleTodos.map(todo => {
                                 return (
                                     <TodoItem
                                         key={todo.id || 0}
@@ -27,7 +27,14 @@ class TodoList extends Component {
                                     />
                                 )
                             }) :
-                            <React.Fragment />
+                            todos.map(todo => {
+                                return (
+                                    <TodoItem
+                                        key={todo.id || 0}
+                                        todo={todo}
+                                    />
+                                )
+                            })
                     }
                 </List>
             </Container>
@@ -46,7 +53,8 @@ TodoList.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-    todos: state.todoReducer.todos
+    todos: state.todoReducer.todos,
+    visibleTodos: state.todoReducer.visibleTodos
 })
 
 const mapDispatchToProps = {

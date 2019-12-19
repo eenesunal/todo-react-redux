@@ -1,4 +1,7 @@
 import React, { Component } from "react"
+import { connect } from "react-redux"
+
+import { setVisibilityFilter } from "../../redux/actions"
 
 import {
     AllButton as All,
@@ -7,14 +10,39 @@ import {
     VisibilityFilters as Content,
 } from "./VisibilityFilters.styled"
 
-export default class VisibilityFilters extends Component {
+class VisibilityFilters extends Component {
     render() {
+        const { setVisibilityFilter } = this.props
+
         return (
             <Content>
-                <Completed>Completed</Completed>
-                <Incomplete>Incomplete</Incomplete>
-                <All>All</All>
+                <Completed
+                    onClick={() => setVisibilityFilter("COMPLETED")}
+                >
+                    Completed
+                </Completed>
+                <Incomplete
+                    onClick={() => setVisibilityFilter("INCOMPLETE")}
+                >
+                    Incomplete
+                </Incomplete>
+                <All
+                    onClick={() => setVisibilityFilter("ALL")}
+                >
+                    All
+                </All>
             </Content>
         )
     }
 }
+
+
+const mapStateToProps = (state) => ({
+    todos: state.todoReducer.todos
+})
+
+const mapDispatchToProps = {
+    setVisibilityFilter
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(VisibilityFilters)

@@ -38,3 +38,8 @@ export const toggleTodoSuccess = toggledTodo => ({
     type: types.TOGGLE_TODO_SUCCESS,
     toggledTodo
 })
+
+export const setVisibilityFilter = filter => ({
+    type: types.SET_VISIBILITY_FILTER,
+    filter
+})
