@@ -7,7 +7,7 @@ const Todo = styled.li`
     align-self: stretch;
 
     margin: 0;
-    padding: 10px 2.5px;
+    padding: 10px 10px 10px 2.5px;
 
     list-style-type: round;
     cursor: pointer;
