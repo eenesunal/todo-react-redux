@@ -4,8 +4,9 @@ import types from "../action-types"
 import { addTodoSuccess, setTodos, deleteTodoSuccess, toggleTodoSuccess } from "../actions"
 
 function* getTodos() {
-    const todos = yield call(() => localStorage.getItem("todos"))
-    yield put(setTodos(JSON.parse(todos)))
+    const todos = yield call(() => localStorage.getItem("todos")) || []
+    if (todos) yield put(setTodos(JSON.parse(todos)))
+    else yield put(setTodos([]))
 }
 
 function* addTodo(newTodo) {

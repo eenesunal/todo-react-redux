@@ -29,7 +29,7 @@ class TodoList extends Component {
             <Container>
                 <List>
                     {
-                        todos ?
+                        (todos && todos.length > 0) ?
                             todos.map(todo => {
                                 return (
                                     <TodoItem
@@ -38,7 +38,7 @@ class TodoList extends Component {
                                     />
                                 )
                             }) :
-                            <React.Fragment />
+                            <li>There is nothing to do.</li>
                     }
                 </List>
             </Container>
